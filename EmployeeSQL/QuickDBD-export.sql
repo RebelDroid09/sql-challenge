@@ -6,10 +6,31 @@
 -- two dots ('..' - without quotes).
 
 CREATE TABLE "Titles" (
-    "title_id" string   NOT NULL,
-    "title" string   NOT NULL,
+    "title_id" text   NOT NULL,
+    "title" text   NOT NULL,
     CONSTRAINT "pk_Titles" PRIMARY KEY (
         "title_id"
+     )
+);
+
+CREATE TABLE "Departments" (
+    "dept_no" text   NOT NULL,
+    "dept_name" text   NOT NULL,
+    CONSTRAINT "pk_Departments" PRIMARY KEY (
+        "dept_no"
+     )
+);
+
+CREATE TABLE "Employees" (
+    "emp_no" int   NOT NULL,
+    "emp_title" text   NOT NULL,
+    "birth_date" date   NOT NULL,
+    "first_name" text   NOT NULL,
+    "last_name" text   NOT NULL,
+    "sex" char   NOT NULL,
+    "hire_date" date   NOT NULL,
+    CONSTRAINT "pk_Employees" PRIMARY KEY (
+        "emp_no"
      )
 );
 
@@ -21,21 +42,8 @@ CREATE TABLE "Salaries" (
      )
 );
 
-CREATE TABLE "Employees" (
-    "emp_no" int   NOT NULL,
-    "emp_title" string   NOT NULL,
-    "birth_date" date   NOT NULL,
-    "first_name" string   NOT NULL,
-    "last_name" string   NOT NULL,
-    "sex" char   NOT NULL,
-    "hire_date" date   NOT NULL,
-    CONSTRAINT "pk_Employees" PRIMARY KEY (
-        "emp_no"
-     )
-);
-
 CREATE TABLE "DeptManager" (
-    "dept_no" string   NOT NULL,
+    "dept_no" text   NOT NULL,
     -- This table has a composite key
     "emp_no" int   NOT NULL,
     CONSTRAINT "pk_DeptManager" PRIMARY KEY (
@@ -46,17 +54,9 @@ CREATE TABLE "DeptManager" (
 CREATE TABLE "DeptEmp" (
     -- Composite key
     "emp_no" int   NOT NULL,
-    "dept_no" string   NOT NULL,
+    "dept_no" text   NOT NULL,
     CONSTRAINT "pk_DeptEmp" PRIMARY KEY (
         "emp_no","dept_no"
-     )
-);
-
-CREATE TABLE "Departments" (
-    "dept_no" string   NOT NULL,
-    "dept_name" string   NOT NULL,
-    CONSTRAINT "pk_Departments" PRIMARY KEY (
-        "dept_no"
      )
 );
 
