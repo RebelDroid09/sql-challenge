@@ -34,25 +34,21 @@ CREATE TABLE "Employees" (
      )
 );
 
--- Table documentation comment 1 (try the PDF/RTF export)
--- Table documentation comment 2
 CREATE TABLE "DeptManager" (
     "dept_no" string   NOT NULL,
-    -- Field documentation comment 1
-    -- Field documentation comment 2
-    -- Field documentation comment 3
+    -- This table has a composite key
     "emp_no" int   NOT NULL,
     CONSTRAINT "pk_DeptManager" PRIMARY KEY (
-        "dept_no"
+        "dept_no","emp_no"
      )
 );
 
 CREATE TABLE "DeptEmp" (
-    -- Field documentation comment 3
+    -- Composite key
     "emp_no" int   NOT NULL,
     "dept_no" string   NOT NULL,
     CONSTRAINT "pk_DeptEmp" PRIMARY KEY (
-        "emp_no"
+        "emp_no","dept_no"
      )
 );
 
